@@ -8,6 +8,7 @@ import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
+import Link from "next/link";
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -32,39 +33,37 @@ const QueryExample = () => {
         sx={{
           p: 2,
           display: "grid",
-          justifyItems:"center",
+          justifyItems: "center",
           gridTemplateColumns: { md: "1fr 1fr 1fr", xs: "1fr", sm: "1fr 1fr" },
           gap: 2,
         }}
       >
         {data &&
           data.map((e: any) => (
-            <Card sx={{ maxWidth: 345, boxShadow: 0, width: '100%' }}>
-              <CardMedia
-                component="img"
-                height="150"
-                width="70"
-                p="5px"
-                image={e.image}
-                sx={{ objectFit: "contain" }}
-                alt="Paella dish"
-              />
-              <CardContent>
-                <Typography
-                  variant="body2"
-                  color="text.secondary"
-                  noWrap={true}
-                >
-                  {e.title}
-                </Typography>
-                <Typography
-                  variant="body2"
-                  color="text.secondary"
-                >
-                  ${e.price}
-                </Typography>
-              </CardContent>
-            </Card>
+            <Link href="/product">
+              <Card sx={{ maxWidth: 345, boxShadow: 0, width: "100%" }}>
+                <CardMedia
+                  component="img"
+                  height="150"
+                  width="70"
+                  image={e.image}
+                  sx={{ objectFit: "contain" }}
+                  alt="Paella dish"
+                />
+                <CardContent>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    noWrap={true}
+                  >
+                    {e.title}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    ${e.price}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
       </Box>
     </>
