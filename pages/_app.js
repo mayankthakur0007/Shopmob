@@ -4,7 +4,10 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import Home from "../components/home";
+import QueryExample from "../components/queryexample";
 import Head from "next/head";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+const queryClient = new QueryClient();
 
 function MyApp() {
   return (
@@ -19,7 +22,10 @@ function MyApp() {
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
         />
       </Head>
-      <Home />
+      <QueryClientProvider client={queryClient}>
+        <Home />
+        <QueryExample />
+      </QueryClientProvider>
     </>
   );
 }
