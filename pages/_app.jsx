@@ -5,7 +5,6 @@ import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import Home from "../components/home";
 import Head from "next/head";
-import QueryExample from "../components/queryexample";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 const queryClient = new QueryClient();
 function MyApp() {
@@ -23,7 +22,6 @@ function MyApp() {
       </Head>
       <QueryClientProvider client={queryClient}>
         <Home />
-        <QueryExample />
       </QueryClientProvider>
     </>
   );
