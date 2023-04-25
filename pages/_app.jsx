@@ -3,11 +3,11 @@ import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
-import Home from "../components/home";
 import Head from "next/head";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 const queryClient = new QueryClient();
-function MyApp() {
+
+function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
@@ -21,10 +21,9 @@ function MyApp() {
         />
       </Head>
       <QueryClientProvider client={queryClient}>
-        <Home />
+        <Component {...pageProps} />{" "}
       </QueryClientProvider>
     </>
   );
 }
-
 export default MyApp;
